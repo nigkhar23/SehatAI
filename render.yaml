@@ -1,0 +1,22 @@
+# Render blueprint — FastAPI engine (Docker). The same image moves to AWS App
+# Runner / ECS Fargate in Round 2.
+#
+# PLAN = free for Round 1: the engine is the OPTIONAL "live API" enhancement, not
+# the submission link. The product link judges click is the Vercel web app, which is
+# a static export bundling its own data snapshots — always-on, instant, independent
+# of this service. The only cost of `free` is a ~50s cold-start on the raw API after
+# ~15min idle; the web demo is unaffected. Bump to `starter` (always-on, ~$7/mo) if
+# you want the live API hot for the demo — see BUILD_PLAN.md.
+services:
+  - type: web
+    name: sehat-engine
+    runtime: docker
+    rootDir: engine
+    dockerfilePath: ./Dockerfile
+    plan: free               # R1 enhancement; spins down when idle (web demo is static & unaffected)
+    healthCheckPath: /
+    autoDeploy: true
+    envVars:
+      - key: SEHAT_CORS_ORIGINS
+        # Set to the Vercel URL once known, e.g. https://sehat.vercel.app
+        sync: false

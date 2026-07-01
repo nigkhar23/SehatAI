@@ -1,0 +1,366 @@
+{
+  "report": {
+    "n": 300,
+    "n_train": 700,
+    "n_test": 300,
+    "base_default_rate": 0.2,
+    "auc": 0.7829,
+    "gini": 0.5658,
+    "ks": 0.4583,
+    "ks_band": 0.4958,
+    "gains": [
+      {
+        "decile": 1,
+        "n": 30,
+        "n_defaults": 15,
+        "bad_rate": 0.5,
+        "cum_defaults": 15,
+        "cum_pct_defaults": 0.25,
+        "lift": 2.5
+      },
+      {
+        "decile": 2,
+        "n": 30,
+        "n_defaults": 15,
+        "bad_rate": 0.5,
+        "cum_defaults": 30,
+        "cum_pct_defaults": 0.5,
+        "lift": 2.5
+      },
+      {
+        "decile": 3,
+        "n": 30,
+        "n_defaults": 5,
+        "bad_rate": 0.1667,
+        "cum_defaults": 35,
+        "cum_pct_defaults": 0.5833,
+        "lift": 0.83
+      },
+      {
+        "decile": 4,
+        "n": 30,
+        "n_defaults": 9,
+        "bad_rate": 0.3,
+        "cum_defaults": 44,
+        "cum_pct_defaults": 0.7333,
+        "lift": 1.5
+      },
+      {
+        "decile": 5,
+        "n": 30,
+        "n_defaults": 7,
+        "bad_rate": 0.2333,
+        "cum_defaults": 51,
+        "cum_pct_defaults": 0.85,
+        "lift": 1.17
+      },
+      {
+        "decile": 6,
+        "n": 30,
+        "n_defaults": 4,
+        "bad_rate": 0.1333,
+        "cum_defaults": 55,
+        "cum_pct_defaults": 0.9167,
+        "lift": 0.67
+      },
+      {
+        "decile": 7,
+        "n": 30,
+        "n_defaults": 2,
+        "bad_rate": 0.0667,
+        "cum_defaults": 57,
+        "cum_pct_defaults": 0.95,
+        "lift": 0.33
+      },
+      {
+        "decile": 8,
+        "n": 30,
+        "n_defaults": 1,
+        "bad_rate": 0.0333,
+        "cum_defaults": 58,
+        "cum_pct_defaults": 0.9667,
+        "lift": 0.17
+      },
+      {
+        "decile": 9,
+        "n": 30,
+        "n_defaults": 2,
+        "bad_rate": 0.0667,
+        "cum_defaults": 60,
+        "cum_pct_defaults": 1.0,
+        "lift": 0.33
+      },
+      {
+        "decile": 10,
+        "n": 30,
+        "n_defaults": 0,
+        "bad_rate": 0.0,
+        "cum_defaults": 60,
+        "cum_pct_defaults": 1.0,
+        "lift": 0.0
+      }
+    ],
+    "bands": [
+      {
+        "band": "AA",
+        "n": 44,
+        "n_defaults": 1,
+        "bad_rate": 0.0227,
+        "approve_rate_if_policy": 0.3121
+      },
+      {
+        "band": "A",
+        "n": 97,
+        "n_defaults": 6,
+        "bad_rate": 0.0619,
+        "approve_rate_if_policy": 0.6879
+      },
+      {
+        "band": "B",
+        "n": 97,
+        "n_defaults": 23,
+        "bad_rate": 0.2371,
+        "approve_rate_if_policy": 0.0
+      },
+      {
+        "band": "C",
+        "n": 48,
+        "n_defaults": 23,
+        "bad_rate": 0.4792,
+        "approve_rate_if_policy": 0.0
+      },
+      {
+        "band": "D",
+        "n": 14,
+        "n_defaults": 7,
+        "bad_rate": 0.5,
+        "approve_rate_if_policy": 0.0
+      }
+    ],
+    "lift": {
+      "reject_cohort_n": 88,
+      "sehat_approved_n": 36,
+      "approval_rate": 0.4091,
+      "approved_bad_rate": 0.0556,
+      "declined_bad_rate": 0.3462,
+      "baseline_bad_rate": 0.2273,
+      "bad_rate_reduction_vs_blanket": 0.1717
+    },
+    "bad_rate_monotone": true,
+    "notes": [
+      "Synthetic data calibrated to RBI/MSME distributions; pending sandbox validation.",
+      "Weights fitted via logistic regression on the training split, then rounded to 2dp for interpretability.",
+      "Approve = band AA/A on FHS alone (pre-gate) to isolate the score's discrimination."
+    ]
+  },
+  "weight_fit": {
+    "pure_logit_fit": {
+      "cash_flow": 0.17767387740427815,
+      "revenue_vitality": 0.022820723344488474,
+      "banking_discipline": 0.30752177582898776,
+      "compliance": 0.2601331295296825,
+      "leverage": 0.04488011611414441,
+      "digital_footprint": 0.18697037777841863
+    },
+    "design_intent_prior": {
+      "cash_flow": 0.25,
+      "revenue_vitality": 0.2,
+      "banking_discipline": 0.2,
+      "compliance": 0.15,
+      "leverage": 0.12,
+      "digital_footprint": 0.08
+    },
+    "prior_shrink": 0.5,
+    "blended": {
+      "cash_flow": 0.21383693870213907,
+      "revenue_vitality": 0.11141036167224425,
+      "banking_discipline": 0.2537608879144939,
+      "compliance": 0.20506656476484125,
+      "leverage": 0.0824400580570722,
+      "digital_footprint": 0.13348518888920932
+    },
+    "rounded": {
+      "cash_flow": 0.21,
+      "revenue_vitality": 0.11,
+      "banking_discipline": 0.26,
+      "compliance": 0.21,
+      "leverage": 0.08,
+      "digital_footprint": 0.13
+    },
+    "logit_coefficients_standardised": {
+      "cash_flow": -0.2078854359515857,
+      "revenue_vitality": -0.0267011453259661,
+      "banking_discipline": -0.35981259241250513,
+      "compliance": -0.30436600938628605,
+      "leverage": -0.052511503887076455,
+      "digital_footprint": -0.2187627076210998
+    },
+    "regularisation_C": 0.05,
+    "train_n": 700,
+    "seed": 7
+  },
+  "model_card": {
+    "champion": {
+      "type": "WOE binning + logistic regression scorecard",
+      "model_version": "champion-woe-logit-1.0.0",
+      "auc": 0.7449,
+      "approve_threshold_pd": 0.1436,
+      "coef_sign_constraint": "all <= 0 (WOE risk-aligned)",
+      "n_features_shrunk_to_zero": 5
+    },
+    "challenger": {
+      "type": "Monotonic gradient boosting (LightGBM) + SHAP",
+      "auc": 0.7728,
+      "approve_threshold_pd": 0.1232,
+      "monotone_constraints": {
+        "inflow_cv": 1,
+        "surplus_ratio": -1,
+        "runway_months": -1,
+        "turnover_slope_pct": -1,
+        "seasonality": 1,
+        "bounce_rate": 1,
+        "neg_balance_days": 1,
+        "median_balance": -1,
+        "filing_ontime_pct": -1,
+        "vintage_months": -1,
+        "obligation_ratio": 1,
+        "dscr_proxy": -1,
+        "txn_velocity": -1,
+        "unique_counterparties": -1,
+        "top1_payer_share": 1
+      },
+      "num_boost_round": 300
+    },
+    "fhs_reference": {
+      "type": "Deterministic 6-subscore FHS (the decider / interpretable face)",
+      "auc": 0.7829
+    },
+    "agreement": {
+      "champion_vs_challenger": 0.94,
+      "champion_vs_fhs": 0.8533,
+      "challenger_vs_fhs": 0.8867,
+      "all_three": 0.84,
+      "pd_rank_corr_champ_chal": 0.9475
+    },
+    "information_value_ranking": [
+      {
+        "key": "runway_months",
+        "label": "Liquidity runway (months)",
+        "iv": 0.4831,
+        "monotone": true,
+        "n_bins": 9
+      },
+      {
+        "key": "dscr_proxy",
+        "label": "DSCR proxy",
+        "iv": 0.4771,
+        "monotone": true,
+        "n_bins": 8
+      },
+      {
+        "key": "bounce_rate",
+        "label": "Cheque/mandate bounce rate",
+        "iv": 0.4144,
+        "monotone": true,
+        "n_bins": 8
+      },
+      {
+        "key": "neg_balance_days",
+        "label": "Days overdrawn",
+        "iv": 0.3248,
+        "monotone": true,
+        "n_bins": 4
+      },
+      {
+        "key": "txn_velocity",
+        "label": "UPI txn velocity",
+        "iv": 0.3179,
+        "monotone": true,
+        "n_bins": 6
+      },
+      {
+        "key": "inflow_cv",
+        "label": "Inflow volatility (CV)",
+        "iv": 0.3015,
+        "monotone": true,
+        "n_bins": 8
+      },
+      {
+        "key": "unique_counterparties",
+        "label": "Unique counterparties",
+        "iv": 0.2788,
+        "monotone": true,
+        "n_bins": 6
+      },
+      {
+        "key": "seasonality",
+        "label": "Seasonality (peak/trough)",
+        "iv": 0.2717,
+        "monotone": true,
+        "n_bins": 10
+      },
+      {
+        "key": "filing_ontime_pct",
+        "label": "GST on-time filing %",
+        "iv": 0.2451,
+        "monotone": true,
+        "n_bins": 5
+      },
+      {
+        "key": "vintage_months",
+        "label": "Registered vintage (months)",
+        "iv": 0.1881,
+        "monotone": true,
+        "n_bins": 6
+      },
+      {
+        "key": "top1_payer_share",
+        "label": "Top-payer concentration",
+        "iv": 0.1784,
+        "monotone": true,
+        "n_bins": 5
+      },
+      {
+        "key": "median_balance",
+        "label": "Median EOD balance",
+        "iv": 0.1714,
+        "monotone": true,
+        "n_bins": 4
+      },
+      {
+        "key": "obligation_ratio",
+        "label": "Obligation-to-inflow ratio",
+        "iv": 0.1522,
+        "monotone": true,
+        "n_bins": 5
+      },
+      {
+        "key": "surplus_ratio",
+        "label": "Operating surplus ratio",
+        "iv": 0.1518,
+        "monotone": true,
+        "n_bins": 5
+      },
+      {
+        "key": "turnover_slope_pct",
+        "label": "GST turnover trend",
+        "iv": 0.1062,
+        "monotone": true,
+        "n_bins": 6
+      }
+    ],
+    "n_train": 700,
+    "n_test": 300,
+    "base_default_rate": 0.199,
+    "split_seed": 7,
+    "notes": [
+      "Champion and challenger train on RAW engineered features; WOE bin cut-points are LEARNED from the cohort default rate (they replace the hand-set scoring ramps).",
+      "Both models are monotone by construction (WOE merged to monotone; LightGBM monotone_constraints) — a regulator-deployable property a black box lacks.",
+      "Champion coefficients are sign-constrained (all <= 0, since WOE is risk-aligned), so the scorecard never encodes 'higher WOE -> riskier'; collinear features shrink toward zero rather than flipping sign.",
+      "Operating points (approve thresholds) aligned to the incumbent FHS approval rate so agreement compares which applicants are approved, not merely how many.",
+      "Champion DECIDES (readable, RBI-explainable); challenger ADVISES (cross-check). FHS remains the interpretable face and the deterministic decider of record.",
+      "IV = Information Value: higher = stronger good/bad separation (feature ranking)."
+    ]
+  },
+  "scorecard_version": "1.3.0"
+}

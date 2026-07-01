@@ -1,0 +1,101 @@
+{
+  "personas": [
+    {
+      "id": "P1_STRONG",
+      "key": "1_strong_formal",
+      "name": "Sharma Textiles",
+      "sector": "textiles",
+      "tagline": "Clean formal MSME — straightforward approve (baseline).",
+      "fhs": 98.6,
+      "band": "AA",
+      "decision": "approve",
+      "indicative_limit": 2750000.0,
+      "thin_file": false
+    },
+    {
+      "id": "P2_HERO",
+      "key": "2_thin_file_hero",
+      "name": "Anita Provision Store",
+      "sector": "retail_trade",
+      "tagline": "Thin FIRM file — a firm-level scorecard can't price the business; the proprietor's personal bureau is clean but blind to the firm's live cash-flow. Sehat reads both and approves with reasons.",
+      "fhs": 78.1,
+      "band": "A",
+      "decision": "approve",
+      "indicative_limit": 1300000.0,
+      "thin_file": false
+    },
+    {
+      "id": "P3_BORDERLINE",
+      "key": "3_volatile_borderline",
+      "name": "Kumar Logistics",
+      "sector": "logistics",
+      "tagline": "Volatile inflows, moderate leverage — refer/conditional, shows nuance.",
+      "fhs": 65.3,
+      "band": "B",
+      "decision": "refer",
+      "indicative_limit": 0.0,
+      "thin_file": false
+    },
+    {
+      "id": "P4_DECLINE",
+      "key": "4_genuine_decline",
+      "name": "Failing Traders",
+      "sector": "wholesale_trade",
+      "tagline": "Weak fundamentals — model correctly declines (filter, not approval machine).",
+      "fhs": 24.9,
+      "band": "D",
+      "decision": "decline",
+      "indicative_limit": 0.0,
+      "thin_file": false
+    },
+    {
+      "id": "P5_DELINQUENT",
+      "key": "5_thin_delinquent",
+      "name": "Patel Hardware",
+      "sector": "retail_trade",
+      "tagline": "Healthy alt-data but a live SMA-2 on the proprietor — bureau hard-gate correctly declines (necessary-but-insufficient).",
+      "fhs": 86.0,
+      "band": "AA",
+      "decision": "decline",
+      "indicative_limit": 0.0,
+      "thin_file": false
+    },
+    {
+      "id": "P6_FRAUD_PARTIAL",
+      "key": "6_partial_fraud",
+      "name": "Mystery Exports",
+      "sector": "wholesale_trade",
+      "tagline": "Missing UPI/EPFO (graceful degradation) + round-tripping inflows the fraud layer detects and caps.",
+      "fhs": 59.3,
+      "band": "B",
+      "decision": "refer",
+      "indicative_limit": 0.0,
+      "thin_file": false
+    },
+    {
+      "id": "P7_PROXY_MFG",
+      "key": "7_proxy_manufacturer",
+      "name": "Verma Pressings",
+      "sector": "manufacturing",
+      "tagline": "New-to-credit manufacturer — no bureau file, thin GST, no UPI. A conventional scorecard cannot price it, but steady metered electricity confirms the unit is running at capacity, and Sehat approves on alternate data.",
+      "fhs": 72.0,
+      "band": "A",
+      "decision": "approve",
+      "indicative_limit": 1775000.0,
+      "thin_file": true
+    },
+    {
+      "id": "P7B_PROXY_SLOWDOWN",
+      "key": "8_proxy_slowdown",
+      "name": "Verma Pressings (Q-on-Q slowdown)",
+      "sector": "manufacturing",
+      "tagline": "The same manufacturer a quarter later — its electricity consumption has fallen sharply. The same proxy that approved it now flags an operational slowdown, and Sehat steps the decision down to refer.",
+      "fhs": 69.7,
+      "band": "B",
+      "decision": "refer",
+      "indicative_limit": 0.0,
+      "thin_file": true
+    }
+  ],
+  "scorecard_version": "1.3.0"
+}

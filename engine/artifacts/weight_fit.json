@@ -1,0 +1,46 @@
+{
+  "pure_logit_fit": {
+    "cash_flow": 0.17767387740427815,
+    "revenue_vitality": 0.022820723344488474,
+    "banking_discipline": 0.30752177582898776,
+    "compliance": 0.2601331295296825,
+    "leverage": 0.04488011611414441,
+    "digital_footprint": 0.18697037777841863
+  },
+  "design_intent_prior": {
+    "cash_flow": 0.25,
+    "revenue_vitality": 0.2,
+    "banking_discipline": 0.2,
+    "compliance": 0.15,
+    "leverage": 0.12,
+    "digital_footprint": 0.08
+  },
+  "prior_shrink": 0.5,
+  "blended": {
+    "cash_flow": 0.21383693870213907,
+    "revenue_vitality": 0.11141036167224425,
+    "banking_discipline": 0.2537608879144939,
+    "compliance": 0.20506656476484125,
+    "leverage": 0.0824400580570722,
+    "digital_footprint": 0.13348518888920932
+  },
+  "rounded": {
+    "cash_flow": 0.21,
+    "revenue_vitality": 0.11,
+    "banking_discipline": 0.26,
+    "compliance": 0.21,
+    "leverage": 0.08,
+    "digital_footprint": 0.13
+  },
+  "logit_coefficients_standardised": {
+    "cash_flow": -0.2078854359515857,
+    "revenue_vitality": -0.0267011453259661,
+    "banking_discipline": -0.35981259241250513,
+    "compliance": -0.30436600938628605,
+    "leverage": -0.052511503887076455,
+    "digital_footprint": -0.2187627076210998
+  },
+  "regularisation_C": 0.05,
+  "train_n": 700,
+  "seed": 7
+}

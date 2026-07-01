@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.so
+
+# Engine build artifacts — the cohort is large (~124MB) and regenerable via
+# `python scripts/generate_cohort.py`; keep it OUT of git. But DO commit the small
+# evidence artifacts: validation_report.json, weight_fit.json, and the hybrid model
+# card + champion scorecard + trained challenger (champion.json, model_card.json,
+# challenger.txt) — all deck/clone-and-verify evidence, all regenerable from the cohort.
+engine/artifacts/cohort.jsonl
+engine/artifacts/cohort.parquet
+engine/artifacts/*.pkl
+# Runtime audit log written by the live API (regenerated per run; not committed).
+engine/artifacts/audit_log.jsonl
+# Dev-only spine-safety backup + baseline + verifier (operational-proxy build).
+# Not product code; _spine_guard.py hardcodes internal md5 fingerprints — keep local.
+engine/.spine_backup/
+engine/scripts/_spine_guard.py
+# Dev-only push bundler + its output (curated public snapshot for the Colab push).
+make_push_bundle.py
+push_bundle/
+push_bundle.zip
+make_colab_cell.py
+colab_push_cell.py
+
+# Node / Next.js
+node_modules/
+web/.next/
+web/out/
+web/build/
+.vercel/
+*.tsbuildinfo
+
+# Env / secrets
+.env
+.env.local
+.env.*.local
+*.key
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Logs
+*.log

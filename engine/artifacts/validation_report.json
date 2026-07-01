@@ -1,0 +1,154 @@
+{
+  "n": 300,
+  "n_train": 700,
+  "n_test": 300,
+  "base_default_rate": 0.2,
+  "auc": 0.7829,
+  "gini": 0.5658,
+  "ks": 0.4583,
+  "ks_band": 0.4958,
+  "gains": [
+    {
+      "decile": 1,
+      "n": 30,
+      "n_defaults": 15,
+      "bad_rate": 0.5,
+      "cum_defaults": 15,
+      "cum_pct_defaults": 0.25,
+      "lift": 2.5
+    },
+    {
+      "decile": 2,
+      "n": 30,
+      "n_defaults": 15,
+      "bad_rate": 0.5,
+      "cum_defaults": 30,
+      "cum_pct_defaults": 0.5,
+      "lift": 2.5
+    },
+    {
+      "decile": 3,
+      "n": 30,
+      "n_defaults": 5,
+      "bad_rate": 0.1667,
+      "cum_defaults": 35,
+      "cum_pct_defaults": 0.5833,
+      "lift": 0.83
+    },
+    {
+      "decile": 4,
+      "n": 30,
+      "n_defaults": 9,
+      "bad_rate": 0.3,
+      "cum_defaults": 44,
+      "cum_pct_defaults": 0.7333,
+      "lift": 1.5
+    },
+    {
+      "decile": 5,
+      "n": 30,
+      "n_defaults": 7,
+      "bad_rate": 0.2333,
+      "cum_defaults": 51,
+      "cum_pct_defaults": 0.85,
+      "lift": 1.17
+    },
+    {
+      "decile": 6,
+      "n": 30,
+      "n_defaults": 4,
+      "bad_rate": 0.1333,
+      "cum_defaults": 55,
+      "cum_pct_defaults": 0.9167,
+      "lift": 0.67
+    },
+    {
+      "decile": 7,
+      "n": 30,
+      "n_defaults": 2,
+      "bad_rate": 0.0667,
+      "cum_defaults": 57,
+      "cum_pct_defaults": 0.95,
+      "lift": 0.33
+    },
+    {
+      "decile": 8,
+      "n": 30,
+      "n_defaults": 1,
+      "bad_rate": 0.0333,
+      "cum_defaults": 58,
+      "cum_pct_defaults": 0.9667,
+      "lift": 0.17
+    },
+    {
+      "decile": 9,
+      "n": 30,
+      "n_defaults": 2,
+      "bad_rate": 0.0667,
+      "cum_defaults": 60,
+      "cum_pct_defaults": 1.0,
+      "lift": 0.33
+    },
+    {
+      "decile": 10,
+      "n": 30,
+      "n_defaults": 0,
+      "bad_rate": 0.0,
+      "cum_defaults": 60,
+      "cum_pct_defaults": 1.0,
+      "lift": 0.0
+    }
+  ],
+  "bands": [
+    {
+      "band": "AA",
+      "n": 44,
+      "n_defaults": 1,
+      "bad_rate": 0.0227,
+      "approve_rate_if_policy": 0.3121
+    },
+    {
+      "band": "A",
+      "n": 97,
+      "n_defaults": 6,
+      "bad_rate": 0.0619,
+      "approve_rate_if_policy": 0.6879
+    },
+    {
+      "band": "B",
+      "n": 97,
+      "n_defaults": 23,
+      "bad_rate": 0.2371,
+      "approve_rate_if_policy": 0.0
+    },
+    {
+      "band": "C",
+      "n": 48,
+      "n_defaults": 23,
+      "bad_rate": 0.4792,
+      "approve_rate_if_policy": 0.0
+    },
+    {
+      "band": "D",
+      "n": 14,
+      "n_defaults": 7,
+      "bad_rate": 0.5,
+      "approve_rate_if_policy": 0.0
+    }
+  ],
+  "lift": {
+    "reject_cohort_n": 88,
+    "sehat_approved_n": 36,
+    "approval_rate": 0.4091,
+    "approved_bad_rate": 0.0556,
+    "declined_bad_rate": 0.3462,
+    "baseline_bad_rate": 0.2273,
+    "bad_rate_reduction_vs_blanket": 0.1717
+  },
+  "bad_rate_monotone": true,
+  "notes": [
+    "Synthetic data calibrated to RBI/MSME distributions; pending sandbox validation.",
+    "Weights fitted via logistic regression on the training split, then rounded to 2dp for interpretability.",
+    "Approve = band AA/A on FHS alone (pre-gate) to isolate the score's discrimination."
+  ]
+}

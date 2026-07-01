@@ -1,0 +1,506 @@
+{
+  "entity_id": "P3_BORDERLINE",
+  "fhs": 65.3,
+  "band": "B",
+  "decision": "refer",
+  "blocking_gate": null,
+  "indicative_limit": 0.0,
+  "post_loan_dscr": null,
+  "decision_summary": "Referred for manual review — a Financial Health Score of 65.3 (band B) is a conditional/borderline outcome under policy.",
+  "strengths": [
+    {
+      "code": "CF_HEALTHY_SURPLUS",
+      "domain": "cash_flow",
+      "polarity": "strength",
+      "template": "Operating surplus is healthy at 32.2% of inflows.",
+      "narration": "Operating surplus is healthy at 32.2% of inflows.",
+      "grounded": true,
+      "used_llm": false
+    },
+    {
+      "code": "RV_GROWING_TURNOVER",
+      "domain": "revenue_vitality",
+      "polarity": "strength",
+      "template": "GST turnover is trending up (8.9% over the observed window).",
+      "narration": "GST turnover is trending up (8.9% over the observed window).",
+      "grounded": true,
+      "used_llm": false
+    },
+    {
+      "code": "BD_HEALTHY_BUFFER",
+      "domain": "banking_discipline",
+      "polarity": "strength",
+      "template": "Maintains a minimum-balance buffer (median EOD balance ₹1,006,810).",
+      "narration": "Maintains a minimum-balance buffer (median EOD balance ₹1,006,810).",
+      "grounded": true,
+      "used_llm": false
+    },
+    {
+      "code": "LV_HEALTHY_DSCR",
+      "domain": "leverage",
+      "polarity": "strength",
+      "template": "Comfortable debt-service capacity (DSCR proxy 1.59).",
+      "narration": "Comfortable debt-service capacity (DSCR proxy 1.59).",
+      "grounded": true,
+      "used_llm": false
+    },
+    {
+      "code": "DF_DIVERSE_COUNTERPARTIES",
+      "domain": "digital_footprint",
+      "polarity": "strength",
+      "template": "Diversified customer base — 33 unique counterparties.",
+      "narration": "Diversified customer base — 33 unique counterparties.",
+      "grounded": true,
+      "used_llm": false
+    }
+  ],
+  "risks": [
+    {
+      "code": "CF_INFLOW_VOLATILE",
+      "domain": "cash_flow",
+      "polarity": "risk",
+      "template": "Inflows are volatile — month-to-month variation is high (CV 0.51).",
+      "narration": "Inflows are volatile — month-to-month variation is high (CV 0.51).",
+      "grounded": true,
+      "used_llm": false
+    },
+    {
+      "code": "BD_BOUNCES",
+      "domain": "banking_discipline",
+      "polarity": "risk",
+      "template": "3 bounced/returned payment(s) observed (2.1% of debits).",
+      "narration": "3 bounced/returned payment(s) observed (2.1% of debits).",
+      "grounded": true,
+      "used_llm": false
+    },
+    {
+      "code": "BD_NEG_BALANCE_DAYS",
+      "domain": "banking_discipline",
+      "polarity": "risk",
+      "template": "Account was negative/overdrawn on 4 day(s).",
+      "narration": "Account was negative/overdrawn on 4 day(s).",
+      "grounded": true,
+      "used_llm": false
+    },
+    {
+      "code": "DF_CONCENTRATED_PAYERS",
+      "domain": "digital_footprint",
+      "polarity": "risk",
+      "template": "Revenue concentration risk — top payer is 46% of inflows.",
+      "narration": "Revenue concentration risk — top payer is 46% of inflows.",
+      "grounded": true,
+      "used_llm": false
+    }
+  ],
+  "notes": [
+    {
+      "code": "RV_SEASONAL",
+      "domain": "revenue_vitality",
+      "polarity": "neutral",
+      "template": "Revenue shows a seasonal pattern (peak-to-trough ratio 7.5).",
+      "narration": "Revenue shows a seasonal pattern (peak-to-trough ratio 7.5).",
+      "grounded": true,
+      "used_llm": false
+    },
+    {
+      "code": "CO_EPFO_NEUTRAL",
+      "domain": "compliance",
+      "polarity": "neutral",
+      "template": "EPFO not applicable below the 20-employee threshold — treated as neutral.",
+      "narration": "EPFO not applicable below the 20-employee threshold — treated as neutral.",
+      "grounded": true,
+      "used_llm": false
+    }
+  ],
+  "gates": [
+    {
+      "code": "CN_VALID",
+      "domain": "consent",
+      "polarity": "gate",
+      "template": "Valid consent c_74ce (purpose credit assessment) covering the data fetched, expiring 2026-08-31.",
+      "narration": "Valid consent c_74ce (purpose credit assessment) covering the data fetched, expiring 2026-08-31.",
+      "grounded": true,
+      "used_llm": false
+    },
+    {
+      "code": "FR_GST_INTEGRITY",
+      "domain": "fraud",
+      "polarity": "gate",
+      "template": "Observed inflows materially exceed declared GST turnover (ratio 1.55) — integrity flag.",
+      "narration": "Observed inflows materially exceed declared GST turnover (ratio 1.55) — integrity flag.",
+      "grounded": true,
+      "used_llm": false
+    },
+    {
+      "code": "BG_PASS",
+      "domain": "bureau",
+      "polarity": "gate",
+      "template": "Bureau hygiene clear — no SMA, write-off, settlement or willful-default markers.",
+      "narration": "Bureau hygiene clear — no SMA, write-off, settlement or willful-default markers.",
+      "grounded": true,
+      "used_llm": false
+    }
+  ],
+  "narration_model_id": "claude-haiku-4-5",
+  "narration_prompt_version": "narr-v1",
+  "narration_source": "template",
+  "model_cross_check": {
+    "champion": {
+      "pd": 0.1859,
+      "score_points": 642.6,
+      "approve": false,
+      "threshold": 0.1436,
+      "contributions": [
+        {
+          "key": "bounce_rate",
+          "label": "Cheque/mandate bounce rate",
+          "domain": "banking_discipline",
+          "value": 0.0205,
+          "woe": 1.1033,
+          "points": 64.1,
+          "missing": false
+        },
+        {
+          "key": "txn_velocity",
+          "label": "UPI txn velocity",
+          "domain": "digital_footprint",
+          "value": 27.0,
+          "woe": -0.674,
+          "points": 29.5,
+          "missing": false
+        },
+        {
+          "key": "surplus_ratio",
+          "label": "Operating surplus ratio",
+          "domain": "cash_flow",
+          "value": 0.3219,
+          "woe": -0.2644,
+          "points": 37.3,
+          "missing": false
+        },
+        {
+          "key": "seasonality",
+          "label": "Seasonality (peak/trough)",
+          "domain": "revenue_vitality",
+          "value": 7.478,
+          "woe": -0.9692,
+          "points": 38.6,
+          "missing": false
+        },
+        {
+          "key": "vintage_months",
+          "label": "Registered vintage (months)",
+          "domain": "compliance",
+          "value": 30.0,
+          "woe": 0.1958,
+          "points": 45.7,
+          "missing": false
+        },
+        {
+          "key": "top1_payer_share",
+          "label": "Top-payer concentration",
+          "domain": "digital_footprint",
+          "value": 0.46,
+          "woe": -0.187,
+          "points": 40.4,
+          "missing": false
+        },
+        {
+          "key": "neg_balance_days",
+          "label": "Days overdrawn",
+          "domain": "banking_discipline",
+          "value": 4.0,
+          "woe": 0.3777,
+          "points": 45.1,
+          "missing": false
+        },
+        {
+          "key": "runway_months",
+          "label": "Liquidity runway (months)",
+          "domain": "cash_flow",
+          "value": 1.9083,
+          "woe": -0.3922,
+          "points": 40.8,
+          "missing": false
+        },
+        {
+          "key": "obligation_ratio",
+          "label": "Obligation-to-inflow ratio",
+          "domain": "leverage",
+          "value": 0.2021,
+          "woe": 0.0816,
+          "points": 44.1,
+          "missing": false
+        },
+        {
+          "key": "filing_ontime_pct",
+          "label": "GST on-time filing %",
+          "domain": "compliance",
+          "value": 75.0,
+          "woe": 0.0443,
+          "points": 43.4,
+          "missing": false
+        },
+        {
+          "key": "inflow_cv",
+          "label": "Inflow volatility (CV)",
+          "domain": "cash_flow",
+          "value": 0.5109,
+          "woe": -0.9154,
+          "points": 42.7,
+          "missing": false
+        },
+        {
+          "key": "turnover_slope_pct",
+          "label": "GST turnover trend",
+          "domain": "revenue_vitality",
+          "value": 8.9447,
+          "woe": -0.0728,
+          "points": 42.7,
+          "missing": false
+        },
+        {
+          "key": "median_balance",
+          "label": "Median EOD balance",
+          "domain": "banking_discipline",
+          "value": 1006809.53,
+          "woe": 0.1164,
+          "points": 42.7,
+          "missing": false
+        },
+        {
+          "key": "dscr_proxy",
+          "label": "DSCR proxy",
+          "domain": "leverage",
+          "value": 1.5926,
+          "woe": -0.2486,
+          "points": 42.7,
+          "missing": false
+        },
+        {
+          "key": "unique_counterparties",
+          "label": "Unique counterparties",
+          "domain": "digital_footprint",
+          "value": 33.0,
+          "woe": -0.1926,
+          "points": 42.7,
+          "missing": false
+        }
+      ],
+      "model_version": "champion-woe-logit-1.0.0"
+    },
+    "challenger": {
+      "pd": 0.1039,
+      "base_value": 0.1126,
+      "approve": true,
+      "threshold": 0.1232,
+      "contributions": [
+        {
+          "key": "bounce_rate",
+          "label": "Cheque/mandate bounce rate",
+          "domain": "banking_discipline",
+          "value": 0.0205,
+          "shap": -1.3795,
+          "direction": "reduces risk"
+        },
+        {
+          "key": "seasonality",
+          "label": "Seasonality (peak/trough)",
+          "domain": "revenue_vitality",
+          "value": 7.478,
+          "shap": 0.3686,
+          "direction": "increases risk"
+        },
+        {
+          "key": "txn_velocity",
+          "label": "UPI txn velocity",
+          "domain": "digital_footprint",
+          "value": 27.0,
+          "shap": 0.3263,
+          "direction": "increases risk"
+        },
+        {
+          "key": "inflow_cv",
+          "label": "Inflow volatility (CV)",
+          "domain": "cash_flow",
+          "value": 0.5109,
+          "shap": 0.1836,
+          "direction": "increases risk"
+        },
+        {
+          "key": "runway_months",
+          "label": "Liquidity runway (months)",
+          "domain": "cash_flow",
+          "value": 1.9083,
+          "shap": 0.1746,
+          "direction": "increases risk"
+        },
+        {
+          "key": "surplus_ratio",
+          "label": "Operating surplus ratio",
+          "domain": "cash_flow",
+          "value": 0.3219,
+          "shap": 0.144,
+          "direction": "increases risk"
+        },
+        {
+          "key": "vintage_months",
+          "label": "Registered vintage (months)",
+          "domain": "compliance",
+          "value": 30.0,
+          "shap": -0.1129,
+          "direction": "reduces risk"
+        },
+        {
+          "key": "filing_ontime_pct",
+          "label": "GST on-time filing %",
+          "domain": "compliance",
+          "value": 75.0,
+          "shap": 0.1092,
+          "direction": "increases risk"
+        },
+        {
+          "key": "neg_balance_days",
+          "label": "Days overdrawn",
+          "domain": "banking_discipline",
+          "value": 4.0,
+          "shap": -0.0789,
+          "direction": "reduces risk"
+        },
+        {
+          "key": "top1_payer_share",
+          "label": "Top-payer concentration",
+          "domain": "digital_footprint",
+          "value": 0.46,
+          "shap": 0.0706,
+          "direction": "increases risk"
+        },
+        {
+          "key": "dscr_proxy",
+          "label": "DSCR proxy",
+          "domain": "leverage",
+          "value": 1.5926,
+          "shap": 0.0509,
+          "direction": "increases risk"
+        },
+        {
+          "key": "obligation_ratio",
+          "label": "Obligation-to-inflow ratio",
+          "domain": "leverage",
+          "value": 0.2021,
+          "shap": 0.0441,
+          "direction": "increases risk"
+        },
+        {
+          "key": "turnover_slope_pct",
+          "label": "GST turnover trend",
+          "domain": "revenue_vitality",
+          "value": 8.9447,
+          "shap": 0.0193,
+          "direction": "increases risk"
+        },
+        {
+          "key": "unique_counterparties",
+          "label": "Unique counterparties",
+          "domain": "digital_footprint",
+          "value": 33.0,
+          "shap": -0.017,
+          "direction": "reduces risk"
+        },
+        {
+          "key": "median_balance",
+          "label": "Median EOD balance",
+          "domain": "banking_discipline",
+          "value": 1006809.53,
+          "shap": 0.0063,
+          "direction": "increases risk"
+        }
+      ],
+      "model_version": "challenger-mono-lgbm-1.0.0"
+    },
+    "cross_check": {
+      "fhs_approve": false,
+      "champion_approve": false,
+      "challenger_approve": true,
+      "agree": false,
+      "note": "Models disagree — route to human review (governance gate)."
+    },
+    "fhs_approve": false
+  },
+  "entity": {
+    "id": "P3_BORDERLINE",
+    "key": "3_volatile_borderline",
+    "name": "Kumar Logistics",
+    "sector": "logistics",
+    "state": "GJ",
+    "reg_type": "partnership",
+    "vintage_months": 30,
+    "tagline": "Volatile inflows, moderate leverage — refer/conditional, shows nuance."
+  },
+  "subscores": [
+    {
+      "name": "cash_flow",
+      "value": 51.4,
+      "available": true,
+      "weight": 0.21,
+      "reweighted": false
+    },
+    {
+      "name": "revenue_vitality",
+      "value": 60.0,
+      "available": true,
+      "weight": 0.11,
+      "reweighted": false
+    },
+    {
+      "name": "banking_discipline",
+      "value": 81.7,
+      "available": true,
+      "weight": 0.26,
+      "reweighted": false
+    },
+    {
+      "name": "compliance",
+      "value": 66.3,
+      "available": true,
+      "weight": 0.21,
+      "reweighted": false
+    },
+    {
+      "name": "leverage",
+      "value": 66.1,
+      "available": true,
+      "weight": 0.08,
+      "reweighted": false
+    },
+    {
+      "name": "digital_footprint",
+      "value": 56.9,
+      "available": true,
+      "weight": 0.13,
+      "reweighted": false
+    }
+  ],
+  "coverage": {
+    "fraction": 1.0,
+    "has_txns": true,
+    "has_gst": true,
+    "has_upi": true,
+    "epfo_applicable": false,
+    "txn_months": 12,
+    "gst_returns": 8,
+    "has_proxy": false,
+    "proxy_type": null
+  },
+  "operational_proxy": null,
+  "bureau_thin_file": false,
+  "scorecard_version": "1.3.0",
+  "audit": {
+    "input_hash": "5825cdeacab4de56ff0a2bfab43a9ecdc1cc3eca6c6172f8e9bc9f575aeba680",
+    "record_hash": "477ed6bf724cf50d",
+    "scorecard_version": "1.3.0",
+    "consent_id": "c_74ce",
+    "blocking_gate": null,
+    "timestamp": "2026-06-29T00:00:00Z"
+  }
+}

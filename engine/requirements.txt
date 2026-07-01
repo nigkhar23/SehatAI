@@ -1,0 +1,22 @@
+# Runtime (deployed engine — zero LLM calls on the demo path)
+fastapi>=0.111
+uvicorn[standard]>=0.30
+pydantic>=2.7
+pandas>=2.2
+numpy>=1.26
+scikit-learn>=1.5
+
+# Dev / offline only (NOT required by the deployed container — the live app makes
+# zero LLM calls AND zero model calls; narration AND the challenger PD/SHAP are
+# pre-baked into the persona JSON, and the champion serves from champion.json via
+# pure numpy):
+#   pip install pytest httpx anthropic lightgbm shap scipy
+# then:  ANTHROPIC_API_KEY=... python scripts/pregenerate_narration.py
+#        python scripts/train_models.py            # fit champion + challenger
+#        python scripts/pregenerate_model_explain.py   # freeze per-persona PD + SHAP
+# pytest>=8.2          # unit tests (tests/)
+# httpx>=0.27          # FastAPI TestClient
+# anthropic>=0.34      # offline narration pre-generation ONLY
+# lightgbm>=4.0        # challenger (monotonic GBM) — TRAINING/offline ONLY
+# shap>=0.44           # challenger per-applicant attributions — offline ONLY
+# scipy>=1.10          # sign-constrained logistic for the champion — TRAINING ONLY

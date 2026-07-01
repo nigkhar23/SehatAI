@@ -1,0 +1,28 @@
+[project]
+name = "sehat-engine"
+version = "1.0.0"
+description = "Sehat — deterministic, validated MSME Financial Health Card scoring engine (IDBI Innovate 2026, Track 03)"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.111",
+    "uvicorn[standard]>=0.30",
+    "pydantic>=2.7",
+    "pandas>=2.2",
+    "numpy>=1.26",
+    "scikit-learn>=1.5",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.2",
+    "httpx>=0.27",          # FastAPI TestClient
+    "anthropic>=0.34",      # offline narration pre-generation only (never on demo path)
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
