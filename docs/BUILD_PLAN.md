@@ -139,7 +139,7 @@ consistent with this cohort — **freeze persona inputs BEFORE running the engin
 | Jun 30 | scaffold repo; **canonical Pydantic schema** + adapter seam; cohort generator (labeled) | **Jun 30 deep-dive AMA: Track-03 specifics + mentor rejection criteria. Download the official PPT template; list its exact slides in DECK.md** |
 | Jul 1–3 | **the spine:** scoring engine + reason codes, fit weights (logit), AUC/KS/bad-rate report, monotonicity tests; pre-score pipeline (consent, sufficiency, fraud, bureau gate) | sanity-check cohort realism; create public GitHub repo; pick deploy host |
 | Jul 4–5 | decision layer (DSCR sizing) + audit record; explainability templates + grounding validator (Claude rephrase offline) | confirm IP/NDA terms on portal; feed Jun-30 answers back |
-| Jul 6–7 | Health Card UI + 6 personas + static portfolio view; **deploy live (Vercel web + hosted FastAPI)** | test the live link end-to-end; product calls, copy/tone |
+| Jul 6–7 | Health Card UI + demo personas (8 shipped, incl. the operational-proxy pair) + static portfolio view; **deploy live (Vercel web + hosted FastAPI)** | test the live link end-to-end; product calls, copy/tone |
 | Jul 8 | **fill the official PPT template** (problem → live card → risk-qualified Lift → validation → controls → architecture → roadmap); polish deployed app + README | review deck against template rules; rehearse the walkthrough |
 | Jul 9 | final pass; grounding/monotonicity tests green; freeze repo | **submit: PPT + deployment link + GitHub link** on Hack2skill |
 

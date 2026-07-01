@@ -164,7 +164,9 @@ export default function HealthCard({ a }: { a: Assessment }) {
             <div className="eyebrow text-forest">Sehat · underwriter assistant</div>
             <p className="mt-1 text-[0.86rem] leading-relaxed text-ink-soft">
               {a.decision === "approve"
-                ? "Reads alternate data (GST / UPI / bank / EPFO), validates discrimination, and shows its work — here's why."
+                ? a.model_cross_check?.cross_check?.agree === false
+                  ? "Approved on the Financial Health Score — but the champion and challenger models split, so this is flagged for a human reviewer. The score decides; the models advise; the disagreement is disclosed."
+                  : "Reads alternate data (GST / UPI / bank / EPFO), validates discrimination, and shows its work — here's why."
                 : a.blocking_gate === "bureau"
                   ? "Strong alternate-data profile, but a live bureau marker is a hard stop — bureau is necessary, not sufficient."
                   : a.decision === "refer" && a.model_cross_check?.cross_check?.agree === false

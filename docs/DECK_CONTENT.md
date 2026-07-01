@@ -155,6 +155,7 @@ Screenshots from the live app (**https://sehat-ai-84ja.vercel.app/**). Recommend
 
 1. **P2 — Thin-file hero** (`/card/P2_HERO`): FHS **78.1 / Band A / approve ₹13.0L**. The winning case — bureau can't price it, Sehat approves with reasons. Cross-check: **all 3 models agree**.
 2. **P7 — Operational-proxy manufacturer** (`/card/P7_PROXY_MFG`): FHS **72.0 / Band A / approve ₹17.75L**. **Genuinely credit-invisible** — no bureau file at all, thin GST, no UPI — so a conventional scorecard cannot price it. Its **electricity meter is steady**, and that tips the score across the approve line. Show the **electricity sparkline panel**: *this is the exact operational-proxy source the Track-03 owner asked for on Jun 30, in-product.* **Then toggle to P7B** (`/card/P7B_PROXY_SLOWDOWN`) — the *same business* a quarter later with **electricity crashed**: the same meter now fires `RV_PROXY_TREND_BREAK` and the decision steps down to **refer (Band B)**. The proxy genuinely moves the decision, both ways. *(Honest note for Q&A: the proxy-blind champion still approves the slowdown case — so the deterministic score caught a downturn the bureau-style model can't see, and routed it to human review.)*
+   - _SN (if asked why P7's ₹17.75L limit exceeds P2's ₹13.0L despite a thinner file): the limit tracks **verified monthly surplus**, not how much data exists. P7 has higher revenue (₹5.6L vs ₹4.2L/mo) and steadier inflows (lower CV → smaller volatility haircut), and the limit is sized so **post-loan DSCR stays ≤ 1.5** — it's surplus-driven and DSCR-capped, not a reward for a rich file._
 3. **P5 — Thin-but-delinquent** (`/card/P5_DELINQUENT`): FHS **86.0** but **DECLINED** — live SMA-2 trips the bureau hard-gate. Shows the gate working.
 4. **P6 — Partial-data + fraud** (`/card/P6_FRAUD_PARTIAL`): missing UPI/EPFO (graceful degradation) + round-tripping caught and capped.
 5. **Model cross-check panel** (P3 — `/card/P3_BORDERLINE`): champion & challenger **disagree → routed to human review** (governance in action).
@@ -189,9 +190,11 @@ Screenshots from the live app (**https://sehat-ai-84ja.vercel.app/**). Recommend
 **Bad rate by band** (monotonically decreasing risk): AA **2.3%** · A **6.2%** · B **23.7%** · C **47.9%** · D **50.0%**.
 
 **★ Risk-qualified Credit-Invisible Lift** — on the thin/no-bureau-file "reject" cohort (n=88) a conventional scorecard cannot price:
-- Sehat **approves 41%** (36 of 88) — **at a 5.6% bad rate**.
+- Sehat **approves 41%** (36 of 88) — **at a 5.6% bad rate** *(indicative: synthetic cohort, n=36 approved; Round-2 sandbox validates on real data).*
 - The ones it **declines** default at **34.6%** (cohort baseline 22.7%).
 - **+17.2 percentage-point** bad-rate reduction vs blanket-approving the cohort → **expands the book while holding losses under appetite.**
+
+_SN: the lift ratios are the proof-of-method on a labelled synthetic cohort; the small approved-n (36) is why we caveat it as indicative and re-validate on the bank's real data in Round 2. Lead with the mechanism (safe expansion of a rejected book), not the decimal._
 
 **Hybrid champion/challenger cross-check** (model-risk governance):
 - Champion (WOE+logistic) AUC **0.745** · Challenger (monotonic GBM) AUC **0.773** · FHS reference AUC **0.783**.
